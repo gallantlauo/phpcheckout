@@ -87,7 +87,7 @@ $kitNames = mysql_query($selectedClass, $equip) or die("Could not perform select
 $selectedClass = "SELECT * FROM kit WHERE Repair = 1 ORDER BY Name";
 $repairs = mysql_query($selectedClass, $equip) or die("Could not perform select query - " . mysql_error());
 $repair = array();
-mysql_data_seek($repairs,0);
+//mysql_data_seek($repairs,0);
 while ($loopRepair = mysql_fetch_assoc($repairs)) {
   array_push($repair, $loopRepair['ID']);
 }

@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.4
+-- version 3.3.8.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 25, 2010 at 10:13 PM
--- Server version: 5.1.45
+-- Generation Time: Feb 08, 2011 at 07:47 PM
+-- Server version: 5.1.47
 -- PHP Version: 5.2.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `witdesig_equipment`
+-- Database: `db_phpcheckout`
 --
 
 -- --------------------------------------------------------
@@ -106,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `checkedout` (
   `Problem` int(1) NOT NULL DEFAULT '0',
   `CheckoutUser` varchar(255) DEFAULT '0',
   `CheckinUser` varchar(255) NOT NULL DEFAULT '',
+  `ReserveDate` date DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -247,6 +248,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   `Email` varchar(255) DEFAULT NULL,
   `Phone` varchar(255) DEFAULT NULL,
   `ContractSigned` int(1) DEFAULT NULL,
+  `uid` varchar(10) DEFAULT NULL,
   UNIQUE KEY `ID` (`ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -254,8 +256,8 @@ CREATE TABLE IF NOT EXISTS `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`ID`, `StudentID`, `FirstName`, `LastName`, `Email`, `Phone`, `ContractSigned`) VALUES
-(1, '29016001234567', 'First', 'Last', 'email@email.com', '5551234567', 1);
+INSERT INTO `students` (`ID`, `StudentID`, `FirstName`, `LastName`, `Email`, `Phone`, `ContractSigned`, `uid`) VALUES
+(1, '29016001234567', 'First', 'Last', 'email@email.com', '5551234567', 1, 'flast');
 
 -- --------------------------------------------------------
 

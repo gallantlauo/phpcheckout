@@ -320,7 +320,7 @@ if ($row_Recordset1['FineAmount']!="") {
     <? 
     $Image = $row_Recordset1['Image'];
     if($Image!=""){ 
-    	echo "<img src='..$root/images/$Image' width='350' />";
+    	echo "<img src='$root/images/$Image' width='350' />";
     } ?>
     <br>
     </div></td>
