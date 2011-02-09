@@ -66,7 +66,7 @@ mysql_query($sql, $equip) or die(mysql_error());
 ?>
 <meta http-equiv="refresh" content="10;URL=index.php?StudentID=<? echo $StudentID; ?>">
 
-<center><h1>Item Checked Out</h1></center>
+<center><h1>Item Reserved</h1></center>
 <strong><h2>Summary</h2></strong>
 <br>
 <div id="tag-br">
