@@ -10,6 +10,7 @@ if($_POST){
 	$row_imports = mysql_fetch_assoc($import);
 	$rowCount = mysql_num_rows($import);
 	
+	// need to move ldap server and ldap adding info to config
 	$ldap_host = "artserverx.arts.ccny.cuny.edu";
 	$ds = ldap_connect($ldap_host);
 	$bindDn = "uid=ldapadmin,cn=users,dc=artserverx,dc=arts,dc=ccny,dc=cuny,dc=edu";
@@ -108,6 +109,7 @@ if($_POST){
   	    if ($a)
   	    {
       		$output = shell_exec("dscl -u ldapadmin -P $pw /LDAPv3/127.0.0.1 -passwd /Users/$uid 1234 2>&1 &");
+			// dscl command is mac os x server only
       		ldap_close($ds);
       		
       		// now delete from db
