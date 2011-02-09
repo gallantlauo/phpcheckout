@@ -2,10 +2,10 @@
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
-$hostname_equip = "witdesigns.com";
-$database_equip = "witdesig_equipment";
-$username_equip = "witdesig_equip";
-$password_equip = "u81i812";
+$hostname_equip = "localhost";
+$database_equip = "db_phpcheckout";
+$username_equip = "db_user";
+$password_equip = "password";
 $equip = mysql_pconnect($hostname_equip, $username_equip, $password_equip) or die(mysql_error());
 # auth methods, either database or ldap for checkout users only
 # all students must be added to database manually or imported to mysql
@@ -48,15 +48,15 @@ $sunClose = 00;
 $fines = true;
 # if $fines is false, strikes are enabled
 $maxStrike = 3;
-<<<<<<< .mine
+
 $gracePeriod = 1800; // grace period in seconds; for strikes as fines ignores the fine unless the full frequency time has passed.
 $fineAmount = 1.00; // amount of fine or strike
 $fineFreq = 86400; // amount of time per fine increment, in seconds, default is one day.
 $maxFine = 3.00; // max amount of fine or strike per kit
 
 //Directory info
-$root = "/~wesley/equipment"; // using absolute paths. from the root to the program folder, with preceding slash and without trailing slash
-$site_root = "http://localhost"; //domain name where your installation of checkout resides, no trailing slash
+$root = "/phpcheckout"; // using absolute paths. from the root to the program folder, with preceding slash and without trailing slash
+$site_root = "http://www.mysite.com"; //domain name where your installation of checkout resides, no trailing slash
 
 //admin name for clearing and paying strikes, also for adding users; if ldap enabled, must be a valid ldap user
 =======
@@ -76,7 +76,7 @@ $cal_root = "/cal";
 # $site_root = "http://www.yourdomain.com"; 
 # domain name where your installation of checkout resides, no trailing slash
 # admin name for clearing and paying strikes, also for adding users; if ldap enabled, must be a valid ldap user
->>>>>>> .r121
+
 $adminName['name'][] = "admin";
 $adminName['name'][] = "admin2";
 $adminName['name'][] = "admin3";
