@@ -82,12 +82,16 @@ $theDate = isset($_REQUEST["date1"]) ? $_REQUEST["date1"] : "";
 mysql_select_db($database_equip, $equip);
 $selectedClass = "SELECT kit.Name as KitName, kit.ID as KitID, kit.Repair as Repair, class.Name as ClassName FROM kit LEFT JOIN kit_class ON kit_class.KitID = kit.ID LEFT JOIN class ON class.ID = kit_class.ClassID WHERE class.Name = '$class' ORDER BY kit.Name";
 $kitNames = mysql_query($selectedClass, $equip) or die("Could not perform select query - " . mysql_error());
+$totalRows_kitNames = mysql_num_rows($kitNames);
 
-//make an array of repair items
+// get repaired info and make an array of repair items
 $selectedClass = "SELECT * FROM kit WHERE Repair = 1 ORDER BY Name";
 $repairs = mysql_query($selectedClass, $equip) or die("Could not perform select query - " . mysql_error());
+$totalRows_repairs = mysql_num_rows($repairs);
+
 $repair = array();
-//mysql_data_seek($repairs,0);
+if ($totalRows_repairs > 0) { mysql_data_seek($repairs,0); }
+
 while ($loopRepair = mysql_fetch_assoc($repairs)) {
   array_push($repair, $loopRepair['ID']);
 }
@@ -107,8 +111,9 @@ while ($loopReserved = mysql_fetch_assoc($kitReserved)) {
 }
 
 //debug array of checked out and reserved items
-echo "<div id='arrows'>";
 //print_r($item);
+
+echo "<div id='arrows'>";
 if (strtotime($theDate) > strtotime($thisDate)) {
   $prevDate = date("Y-m-d",strtotime($theDate."- 1 days"));
   echo "<a class='active l' href='index.php?date1=$prevDate'><< Previous</a>";
@@ -143,7 +148,7 @@ for ($i =1; $i < 7; $i++){
   </tr>
 	<?
   //get item names
-	mysql_data_seek($kitNames,0);
+	if ($totalRows_kitNames > 0) { mysql_data_seek($kitNames,0); }
 	while($kitName = mysql_fetch_array( $kitNames )) {
 		echo "<tr>\n";
 		echo "  <td class='box'>".$kitName['KitName']."</td>\n";
