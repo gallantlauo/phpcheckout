@@ -11,7 +11,8 @@ $equip = mysql_pconnect($hostname_equip, $username_equip, $password_equip) or di
 # all students must be added to database manually or imported to mysql
 $ldap_enabled = false; 
 $ldap_cal = false;
-# options to enable kit-specific due date change to true
+
+# to enable kit-specific due date change to true
 $checkHours = false; 
 # default hours allowed per kit
 $defaultHours = 48; 
@@ -26,7 +27,7 @@ $dayClosed1 = "Sun";
 $dayClosed2 = "Mon"; 
 # due back BEFORE time
 $dueHours = "17:00:00"; 
-# 24 hour time, with minutes and seconds 00:00:00
+#  24 hour time, with minutes and seconds 00:00:00
 # set your open and close times here. System will only work with Hour arguments, 
 # input hour in 24 hour time in format HH
 $monOpen = 00;
@@ -43,11 +44,11 @@ $satOpen = 14;
 $satClose = 17;
 $sunOpen = 00;
 $sunClose = 00;
-
 // USE FINES OR STRIKES
 $fines = true;
 // if $fines are false, strikes are enabled
 $maxStrike = 3;
+
 $gracePeriod = 1800; // grace period in seconds; for strikes as fines ignores the fine unless the full frequency time has passed.
 $fineAmount = 1.00; // amount of fine or strike
 $fineFreq = 86400; // amount of time per fine increment, in seconds, default is one day.
@@ -65,7 +66,7 @@ then enable $sid_as_uid to be true.
 */
 
 $sid_as_uid = false; // if true, student_id becomes alphanumeric and mirrors the uid.
-$minLength = 12; // minimum length for student id. if above is true, set to something like 5.
+$minLength = 14; // minimum length for student id. if above is true, set to something like 5.
 
 // Directory info
 $site_root = "http://www.mysite.com"; //domain name where your installation of checkout resides, no trailing slash
