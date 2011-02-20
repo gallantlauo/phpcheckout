@@ -44,6 +44,7 @@ function chgHandler() {
 	$('txtUser1').value= nm;
 } 
 <? } ?>
+var minLength = "<?php echo $minLength; ?>";
 function showResponse(req){
 	setTimeout('refreshPage();',1000);
 }
@@ -113,17 +114,20 @@ function Add() {
 	var txtPhone1 = $('txtPhone1');
 	var txtContract1 = $('txtContract1');
 	var txtUser1 = $('txtUser1');
-	
+
+<?php if (!$sid_as_uid)	{ ?>
    if (!(isNumeric(StudentID.value))) 
    { 
-      alert('Only enter the 14-digit Student ID number.') 
+      alert('Only enter the '+minLength+'-digit Student ID number.') 
       StudentID.focus(); 
       StudentID.select(); 
 	  return false;
-   }
-  if (StudentID.value.length < 14)
+   } 
+<?php } ?>
+
+  if (StudentID.value.length < minLength)
    { 
-      alert('Must be a 14-digit Student ID number.') 
+      alert('Must be at least '+minLength+' digits.') 
       StudentID.focus(); 
       StudentID.select(); 
 	  return false;

@@ -23,8 +23,7 @@ if ($filterBy  == "no") {
 		}
 //global javascript
 ?>
-<script type="text/javascript" src="../includes/scriptaculous.js"></script>
-<script type="text/javascript" src="../includes/slider.js"></script>
+
 <script type="text/javascript" src="../includes/effects.js"></script>
 
 <script type="text/javascript">
@@ -145,7 +144,7 @@ function delClass(numero){
 }
 function delAcc(numero){
     $('AccessorytypeID').value = numero;
-	doAjaxSubmit('add-accessory.php','form4');
+	doAjaxSubmit('remove-accessory.php','form4');
 	$('alert').innerHTML = "Accessory Removed";
 }
 function slideDiv(e){
@@ -451,7 +450,7 @@ if ($addAccessory) { ?>
 	<label class="lb">Name: </label><input name="txtName" id="txtName" class="tb" type="text" value="" /><br>
 	<input type="hidden" id="modEquip" name="modEquip" value="acc" />
 	<br />
-	<a href="#" style="float: right; margin-right: 35px;" onClick="delOrAddAccessory('acc');">
+	<a href="#" style="float: right; margin-right: 35px;" onClick="AddAccessory('acc');">
 		<img src="<?php echo $root; ?>/images/add-button.png" border="0" title="Add" /></a>
 	<a href="#" style="float: right; margin-right: 10px;" onClick="refreshPage();">
 		<img src="<?php echo $root; ?>/images/cancel-button.png" border="0" title="Cancel" /></a>

@@ -1,20 +1,17 @@
 <?php
 require_once('../config.php'); 
+
 //variables
 $modEquip = $_REQUEST['modEquip'];
 $EquipmentID = $_REQUEST['EquipmentID'];
 $StudentID = $_REQUEST['StudentID'];
 $accessoryName = $_REQUEST['accessory'];
+$newAccName = $_REQUEST['txtName'];
 $AccessorytypeID = $_REQUEST['AccessorytypeID'];
 
-if(isset($AccessorytypeID)){
-    $remove = "DELETE FROM kit_accessorytype WHERE ID='$AccessorytypeID'";
-    mysql_select_db($database_equip, $equip);
-    mysql_query($remove, $equip) or die(mysql_error());
-}
 if($modEquip == "acc"){
     //add new accessory
-	$query_Equip = "INSERT INTO accessorytype (Name) VALUES ('$KitName')";
+	$query_Equip = "INSERT INTO accessorytype (Name) VALUES ('$newAccName')";
 	mysql_select_db($database_equip, $equip);
 	mysql_query($query_Equip, $equip) or die(mysql_error());
 } else {
