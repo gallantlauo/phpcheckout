@@ -218,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   `Email` varchar(255) DEFAULT NULL,
   `Phone` varchar(255) DEFAULT NULL,
   `ContractSigned` int(1) DEFAULT NULL,
-  `UID` varchar(10) DEFAULT NULL,
+  `UID` varchar(255) DEFAULT NULL,
   UNIQUE KEY `ID` (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
